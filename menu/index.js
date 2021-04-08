@@ -12,7 +12,6 @@ var hopelight_menu_append_div = (parent, text) => {
         parent.appendChild(text);
     }
 };
-
 var  hopelight_switchDarkMode=() => { // Switch Between Light And Dark Mode
     var darkmode_text = document.getElementById('darkmode_switchbutton_text')
     const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
@@ -128,6 +127,7 @@ if (hopelight_nowMode === 'light') {
 function hopelight_music_play(){
 
     aplayers[0].toggle()
+    if (document.getElementsByClassName('hopelight_music_play')){
     if (document.getElementsByClassName('hopelight_music_play')[0].innerHTML === '<i class="fas fa-play fa-fw"></i>'){
         document.getElementsByClassName('hopelight_music_play')[0].innerHTML = '<i class="fas fa-pause fa-fw"></i>'
 
@@ -138,11 +138,14 @@ function hopelight_music_play(){
         document.getElementsByClassName('aplayer-pic')[0].classList.add("music_spin_pause")
         document.getElementsByClassName('aplayer-pic')[0].classList.remove("music_spin")
     }
+    }
+    
 
 
 }
 function hopelight_music_play_new(){
     aplayers[0].play()
+    if (document.getElementsByClassName('hopelight_music_play')){
     document.getElementsByClassName('aplayer-pic')[0].classList.add("music_spin")
     document.getElementsByClassName('hopelight_music_play')[0].innerHTML = '<i class="fas fa-pause fa-fw"></i>'
-}
+}}
